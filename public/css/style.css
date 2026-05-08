@@ -1,0 +1,19 @@
+body {
+  background: linear-gradient(135deg, #0d6efd, #198754);
+  min-height: 100vh;
+}
+
+.auth-card {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 18px;
+}
+
+.dashboard-card {
+  border-radius: 18px;
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
