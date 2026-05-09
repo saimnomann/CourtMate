@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const viewRoutes = require("./routes/viewRoutes");
-
+const analyticsRoutes = require("./routes/analyticsRoutes");
 const app = express();
 
 app.use(cors());
@@ -15,13 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
-
+const sessionRoutes = require("./routes/sessionRoutes");
 app.use("/", viewRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/sessions", sessionRoutes);
 
 const courtRoutes = require("./routes/courtRoutes");
 app.use("/api/courts", courtRoutes);
-
+const bookingRoutes = require("./routes/bookingRoutes");
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/analytics", analyticsRoutes);
 app.use((req, res) => {
   res.status(404).json({
     success: false,

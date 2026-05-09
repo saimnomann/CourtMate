@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analytics | CourtMate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-dark">
+  <div class="container">
+    <a href="/dashboard" class="navbar-brand fw-bold">CourtMate Admin</a>
+
+    <div>
+      <a href="/dashboard" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
+      <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+
+  <div class="booking-hero mb-4">
+    <span class="section-badge">Admin Analytics</span>
+    <h2 class="fw-bold mt-2 mb-1">Analytics Dashboard</h2>
+    <p class="text-muted mb-0">
+      Monitor bookings, revenue, courts, and user activity.
+    </p>
+  </div>
+
+  <div class="row g-4 mb-4" id="summaryCards"></div>
+
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="card booking-panel">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-3">Popular Courts</h5>
+          <div id="popularCourtsContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card booking-panel">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-3">Recent Bookings</h5>
+          <div id="recentBookingsContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/js/adminAnalytics.js"></script>
+<script src="/js/auth.js"></script>
+
+</body>
+</html>

@@ -78,6 +78,12 @@ exports.updateCourt = async (req, res) => {
     const { courtName, courtType, location, hourlyRate, status } = req.body;
 
     if (!courtName || !courtType || !location || !hourlyRate || !status) {
+    if (Number(hourlyRate) <= 0) {
+  return res.status(400).json({
+    success: false,
+    message: "Hourly rate must be greater than 0"
+  });
+}
       return res.status(400).json({
         success: false,
         message: "All fields are required"
