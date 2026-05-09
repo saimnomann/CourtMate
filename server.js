@@ -19,6 +19,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", viewRoutes);
 app.use("/api/auth", authRoutes);
 
+const courtRoutes = require("./routes/courtRoutes");
+app.use("/api/courts", courtRoutes);
+
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -31,3 +34,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`CourtMate server running on port ${PORT}`);
 });
+
+
+
