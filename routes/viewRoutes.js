@@ -39,4 +39,21 @@ router.get("/admin-sessions", authenticateUser, (req, res) => {
 router.get("/admin-analytics", authenticateUser, (req, res) => {
   res.sendFile(path.join(__dirname, "../views/admin-analytics.html"));
 });
+router.get("/equipment", authenticateUser, (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/equipment.html"));
+});
+
+router.get("/athlete-equipment", authenticateUser, (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/athlete-equipment.html"));
+});
+router.get("/admin-rentals", authenticateUser, (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/admin-rentals.html"));
+});
+router.get("/payments", authenticateUser, (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/payments.html"));
+});
+
+router.get("/admin-payments", authenticateUser, (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/admin-payments.html"));
+});
 module.exports = router;

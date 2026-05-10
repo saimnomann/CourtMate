@@ -302,3 +302,192 @@ a {
 .analytics-list-item:last-child {
   border-bottom: none;
 }
+.rental-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 90px;
+  height: 34px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-confirmed {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.status-cancelled {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+/* ============================= */
+/* Courts Admin Page Styling */
+/* ============================= */
+
+#courtsContainer {
+  row-gap: 26px;
+}
+
+/* Better court card layout */
+#courtsContainer .court-card,
+#courtsContainer .card {
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+#courtsContainer .court-card:hover,
+#courtsContainer .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+#courtsContainer .card-body {
+  padding: 26px;
+}
+
+/* Court title */
+.court-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+/* Court details */
+.court-info {
+  margin-bottom: 8px;
+  font-size: 0.96rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.court-info strong {
+  display: inline-block;
+  min-width: 78px;
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Court status badge */
+#courtsContainer .status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 105px;
+  padding: 8px 14px !important;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Update label */
+.update-label {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* Status dropdown */
+.status-select {
+  height: 46px;
+  border-radius: 12px;
+  font-size: 0.94rem;
+  background-color: #ffffff;
+}
+
+/* Buttons wrapper */
+.court-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* Update button */
+.btn-update {
+  background: #facc15;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 12px;
+}
+
+.btn-update:hover {
+  background: #eab308;
+  color: #111827;
+}
+
+/* Delete button */
+.btn-delete {
+  background: #dc3545;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 12px;
+}
+
+.btn-delete:hover {
+  background: #bb2d3b;
+  color: #ffffff;
+}
+
+/* Fix Add Court card spacing */
+#courtForm .btn {
+  margin-top: 6px;
+}
+
+/* Better heading area */
+.courts-heading-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.courts-heading-box h4 {
+  margin-bottom: 4px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.courts-heading-box p {
+  margin-bottom: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #courtsContainer .card-body {
+    padding: 22px;
+  }
+
+  .court-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .court-actions .btn {
+    width: 100%;
+  }
+
+  .courts-heading-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

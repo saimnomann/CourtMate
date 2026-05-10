@@ -22,6 +22,7 @@ const Court = {
   async getAllCourts() {
     const sql = `
       SELECT * FROM courts
+      WHERE status != 'Inactive'
       ORDER BY created_at DESC
     `;
 
@@ -62,7 +63,8 @@ const Court = {
 
   async deleteCourt(id) {
     const sql = `
-      DELETE FROM courts
+      UPDATE courts
+      SET status = 'Inactive'
       WHERE id = ?
     `;
 

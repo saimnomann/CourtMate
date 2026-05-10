@@ -1,5 +1,5 @@
 const Booking = require("../models/bookingModel");
-
+const Payment = require("../models/paymentModel");
 exports.createBooking = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -71,14 +71,21 @@ exports.createBooking = async (req, res) => {
 
     const totalAmount = Number(court.hourly_rate) * duration;
 
-    await Booking.createBooking(
-      userId,
-      courtId,
-      bookingDate,
-      startTime,
-      duration,
-      totalAmount
-    );
+ const bookingResult = await Booking.createBooking(
+  userId,
+  courtId,
+  bookingDate,
+  startTime,
+  durationHours,
+  totalAmount
+);
+
+await Payment.createPayment(
+  userId,
+  "Court Booking",
+  bookingResult.insertId,
+  totalAmount
+);
 
     return res.status(201).json({
       success: true,

@@ -92,60 +92,78 @@ async function loadDashboard() {
       </div>
     </div>
   `;
+cards += `
+  <div class="col-md-4 mb-3">
+    <div class="dashboard-feature-card admin-card">
+      <div class="feature-icon">🎒</div>
 
+      <h5>Equipment</h5>
+
+      <p>
+        Manage sports equipment inventory and availability.
+      </p>
+
+      <a href="/equipment" class="btn btn-dark btn-sm">
+        Open Equipment
+      </a>
+    </div>
+  </div>
+`;
+cards += `
+  <div class="col-md-4 mb-3">
+    <div class="dashboard-feature-card admin-card">
+      <div class="feature-icon">📦</div>
+
+      <h5>Equipment Rentals</h5>
+
+      <p>
+        View athlete rentals and returned equipment.
+      </p>
+
+      <a href="/admin-rentals" class="btn btn-dark btn-sm">
+        Open Rentals
+      </a>
+    </div>
+  </div>
+`;
+cards += `
+  <div class="col-md-4 mb-3">
+    <div class="dashboard-feature-card admin-card">
+      <div class="feature-icon">💳</div>
+
+      <h5>Payments</h5>
+
+      <p>
+        Track athlete payments and mark pending dues as paid.
+      </p>
+
+      <a href="/admin-payments" class="btn btn-dark btn-sm">
+        Open Payments
+      </a>
+    </div>
+  </div>
+`;
 }
 
-    if (role === "coach") {
-      cards += `
-        <div class="col-md-4 mb-3">
-          <div class="dashboard-feature-card coach-card">
-            <div class="feature-icon">🏆</div>
+   if (role === "coach") {
+  cards += `
+    <div class="col-md-4 mb-3">
+      <div class="dashboard-feature-card coach-card">
+        <div class="feature-icon">🏆</div>
 
-            <h5>Training Sessions</h5>
+        <h5>Training Sessions</h5>
 
-            <p>
-              Create, manage, and monitor athlete training sessions.
-            </p>
+        <p>
+          Create, manage, and monitor athlete training sessions.
+        </p>
 
-            <a href="/coach-sessions" class="btn btn-dark btn-sm">
-              Open Sessions
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <div class="dashboard-feature-card disabled-card">
-            <div class="feature-icon">👥</div>
-
-            <h5>Athletes</h5>
-
-            <p>
-              View enrolled athletes and training progress. Coming soon.
-            </p>
-
-            <button class="btn btn-secondary btn-sm" disabled>
-              Coming Soon
-            </button>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <div class="dashboard-feature-card disabled-card">
-            <div class="feature-icon">📅</div>
-
-            <h5>Schedule</h5>
-
-            <p>
-              Manage weekly coaching availability. Coming soon.
-            </p>
-
-            <button class="btn btn-secondary btn-sm" disabled>
-              Coming Soon
-            </button>
-          </div>
-        </div>
-      `;
-    }
+        <a href="/coach-sessions" class="btn btn-dark btn-sm">
+          Open Sessions
+        </a>
+      </div>
+    </div>
+  `;
+}
 
     if (role === "athlete") {
       cards += `
@@ -181,6 +199,23 @@ async function loadDashboard() {
           </div>
         </div>
       `;
+      cards += `
+  <div class="col-md-4 mb-3">
+    <div class="dashboard-feature-card athlete-card">
+      <div class="feature-icon">🎒</div>
+
+      <h5>Equipment Rental</h5>
+
+      <p>
+        Rent available equipment and manage your rentals.
+      </p>
+
+      <a href="/athlete-equipment" class="btn btn-dark btn-sm">
+        Open Equipment
+      </a>
+    </div>
+  </div>
+`;
     }
 
     dashboardCards.innerHTML = cards;

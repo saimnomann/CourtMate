@@ -20,6 +20,14 @@ exports.register = async (req, res) => {
     const { full_name, email, password, role } = req.body;
     console.log("Register Data:", full_name, email, role,password);
     if (!full_name || !email || !password || !role) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(email)) {
+  return res.status(400).json({
+    success: false,
+    message: "Please enter a valid email address"
+  });
+}
       return res.status(400).json({
         success: false,
         message: "All fields are required"
@@ -58,6 +66,14 @@ exports.login = async (req, res) => {
     const { email, password, rememberMe } = req.body;
 
     if (!email || !password) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(email)) {
+  return res.status(400).json({
+    success: false,
+    message: "Please enter a valid email address"
+  });
+}
       return res.status(400).json({
         success: false,
         message: "Email and password are required"

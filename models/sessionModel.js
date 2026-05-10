@@ -45,26 +45,27 @@ const Session = {
     return rows;
   },
 
-  async getCoachSessions(coachId) {
-    const sql = `
-      SELECT 
-        training_sessions.*,
-        courts.court_name,
-        courts.court_type,
-        courts.location,
-        COUNT(session_enrollments.id) AS enrolled_count
-      FROM training_sessions
-      JOIN courts ON training_sessions.court_id = courts.id
-      LEFT JOIN session_enrollments 
-        ON training_sessions.id = session_enrollments.session_id
-      WHERE training_sessions.coach_id = ?
-      GROUP BY training_sessions.id
-      ORDER BY training_sessions.session_date DESC, training_sessions.start_time DESC
-    `;
+async getCoachSessions(coachId) {
+  const sql = `
+    SELECT 
+      training_sessions.*,
+      courts.court_name,
+      courts.court_type,
+      courts.location,
+      COUNT(session_enrollments.id) AS enrolled_count
+    FROM training_sessions
+    JOIN courts ON training_sessions.court_id = courts.id
+    LEFT JOIN session_enrollments 
+      ON training_sessions.id = session_enrollments.session_id
+    WHERE training_sessions.coach_id = ?
+    AND training_sessions.status != 'Cancelled'
+    GROUP BY training_sessions.id
+    ORDER BY training_sessions.session_date DESC, training_sessions.start_time DESC
+  `;
 
-    const [rows] = await db.execute(sql, [coachId]);
-    return rows;
-  },
+  const [rows] = await db.execute(sql, [coachId]);
+  return rows;
+},
 
   async getSessionById(sessionId) {
     const sql = `
